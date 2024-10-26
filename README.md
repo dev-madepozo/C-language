@@ -17,4 +17,4 @@ In this repository, I store information about the C language that I am learning,
 |  #  | Name                                              | Difficulty | Code                         |
 | :-: | :------------------------------------------------ | :--------: | :--------------------------: |
 | 01  | Calendar                                          | 🟠         |[view](/projects/01_Calendar) |
-| 02  | Diamond                                           | 🟢         |[view](/projects/02_Diamong)  |
+| 02  | Diamond                                           | 🟢         |[view](/projects/02_Diamond)  |
