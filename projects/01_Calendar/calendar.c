@@ -1,10 +1,10 @@
+#include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include <stdbool.h>
 
 const int MAX_WIDTH = 28;
-const char BORDER[] = "║";
 char *months[] = {
     "January", "February", "March", "April",
     "May", "June", "July", "August",
@@ -55,7 +55,7 @@ void displayTopBorder()
 
 void displayRightBorder()
 {
-  printf("\033[1;36m %s", BORDER);
+  printf("\033[1;36m %s", "║");
 }
 
 void displayBottomBorder()
@@ -66,7 +66,7 @@ void displayBottomBorder()
 
 void displayLeftBorder(bool hasSpace)
 {
-  printf("\033[1;36m%s", BORDER);
+  printf("\033[1;36m%s", "║");
   if (hasSpace)
   {
     printf(" ");
@@ -99,7 +99,7 @@ void displayWeekHeader()
   printf("\n");
 }
 
-void displayDays(int day, int month, int year)
+void displayDays(int month, int year)
 {
   int firstDayNumber = getFirstDayNumber(1, month, year);
   int col;
@@ -128,6 +128,7 @@ void displayDays(int day, int month, int year)
     if (++col > 6)
     {
       col = 0;
+      rows++;
       displayRightBorder();
       printf("\n");
       displayLeftBorder(false);
@@ -142,24 +143,81 @@ void displayDays(int day, int month, int year)
     }
     displayRightBorder();
   }
+
+  if (rows < 6)
+  {
+    printf("\n║                             ║");
+  }
 }
 
-void displayCalendar()
+void displayCalendar(int month, int year)
 {
-  struct tm currentDate = getCurrentDate();
-  int day = currentDate.tm_mday;
-  int month = currentDate.tm_mon;
-  int year = currentDate.tm_year + 1900;
   displayTopBorder();
   displayMonthAndYearHeader(month, year);
   displayInnerBorder();
   displayWeekHeader();
-  displayDays(day, month, year);
+  displayDays(month, year);
   displayBottomBorder();
+}
+
+void displayMenu()
+{
+  printf("\nP => Previous | T => Today | N => Next | Q => To Close\nPress: ");
 }
 
 int main(int argc, char *argv[])
 {
-  displayCalendar();
+  struct tm currentDate = getCurrentDate();
+
+  int current_day = currentDate.tm_mday;
+  int current_month = currentDate.tm_mon;
+  int current_year = currentDate.tm_year + 1900;
+  int month = current_month;
+  int year = current_year;
+  char option;
+
+  displayCalendar(month, year);
+  displayMenu();
+  scanf("%c", &option);
+
+  while (true)
+  {
+    if (option >= 'A' && option <= 'Z')
+    {
+      option += 32;
+    }
+
+    if (option == 'q')
+    {
+      break;
+    }
+    else if (option == 'p')
+    {
+      if (--month < 0)
+      {
+        month = 11;
+        year--;
+      }
+    }
+    else if (option == 'n')
+    {
+      if (++month > 11)
+      {
+        month = 0;
+        year++;
+      }
+    }
+    else if (option == 't')
+    {
+      month = current_month;
+      year = current_year;
+    }
+
+    displayCalendar(month, year);
+    displayMenu();
+    scanf("%c", &option);
+    system("clear");
+  }
+
   return 0;
 }
