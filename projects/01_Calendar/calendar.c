@@ -10,11 +10,10 @@ char *months[] = {
     "May", "June", "July", "August",
     "September", "October", "November", "December"};
 
-struct tm getCurrentDate()
+struct tm getCurrentTime()
 {
   time_t currentTime = time(NULL);
-  struct tm currentDate = *localtime(&currentTime);
-  return currentDate;
+  return *localtime(&currentTime);
 }
 
 int getNumberOfDays(int month, int year)
@@ -43,7 +42,7 @@ int getFirstDayNumber(int day, int month, int year)
 {
   static int t[] = {0, 3, 2, 5, 0, 3,
                     5, 1, 4, 6, 2, 4};
-  year -= month < 3;
+  year -= month < 2;
   return (year + year / 4 - year / 100 + year / 400 + t[month] + day) % 7;
 }
 
@@ -83,9 +82,9 @@ void displayMonthAndYearHeader(int monthNumber, int year)
 {
   char *monthName = months[monthNumber];
   int length = strlen(monthName);
-  int totalSpaces = MAX_WIDTH - length - 1;
+  int totalSpaces = MAX_WIDTH - length - 5;
   displayLeftBorder(true);
-  printf("%s%*d", monthName, totalSpaces, year);
+  printf("< %s >%*d", monthName, totalSpaces, year);
   displayRightBorder();
 }
 
@@ -99,7 +98,12 @@ void displayWeekHeader()
   printf("\n");
 }
 
-void displayDays(int month, int year)
+bool isCurrentDate(int currentDate[], int day, int month, int year)
+{
+  return day == currentDate[0] && month == currentDate[1] && year == currentDate[2];
+}
+
+void displayDays(int month, int year, int currentDate[])
 {
   int firstDayNumber = getFirstDayNumber(1, month, year);
   int col;
@@ -114,15 +118,19 @@ void displayDays(int month, int year)
 
   int numberOfDays = getNumberOfDays(month, year);
 
-  for (int y = 1; y <= numberOfDays; y++)
+  for (int i = 1; i <= numberOfDays; i++)
   {
-    if (col == 0)
+    if (isCurrentDate(currentDate, i, month, year))
     {
-      printf("\033[1;31m%4d", y);
+      printf("\033[1;33m%4d", i);
+    }
+    else if (col == 0)
+    {
+      printf("\033[1;31m%4d", i);
     }
     else
     {
-      printf("\033[1;36m%4d", y);
+      printf("\033[1;36m%4d", i);
     }
 
     if (++col > 6)
@@ -150,13 +158,13 @@ void displayDays(int month, int year)
   }
 }
 
-void displayCalendar(int month, int year)
+void displayCalendar(int currentDate[], int month, int year)
 {
   displayTopBorder();
   displayMonthAndYearHeader(month, year);
   displayInnerBorder();
   displayWeekHeader();
-  displayDays(month, year);
+  displayDays(month, year, currentDate);
   displayBottomBorder();
 }
 
@@ -167,16 +175,17 @@ void displayMenu()
 
 int main(int argc, char *argv[])
 {
-  struct tm currentDate = getCurrentDate();
+  struct tm currentTime = getCurrentTime();
 
-  int current_day = currentDate.tm_mday;
-  int current_month = currentDate.tm_mon;
-  int current_year = currentDate.tm_year + 1900;
+  int current_day = currentTime.tm_mday;
+  int current_month = currentTime.tm_mon;
+  int current_year = currentTime.tm_year + 1900;
   int month = current_month;
   int year = current_year;
   char option;
+  int currentDate[] = {current_day, current_month, current_year};
 
-  displayCalendar(month, year);
+  displayCalendar(currentDate, month, year);
   displayMenu();
   scanf("%c", &option);
 
@@ -213,7 +222,7 @@ int main(int argc, char *argv[])
       year = current_year;
     }
 
-    displayCalendar(month, year);
+    displayCalendar(currentDate, month, year);
     displayMenu();
     scanf("%c", &option);
     system("clear");
