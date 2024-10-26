@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 int COLORS[] = {31, 32, 33, 34, 35, 36, 37};
 size_t length = sizeof(COLORS) / sizeof(COLORS[0]);
@@ -33,6 +34,7 @@ void displayDiamond(int n)
 
 int main(int argc, char *argv[])
 {
+  srand(time(NULL));
   int n = 7;
   displayDiamond(n);
   return 0;
