@@ -8,14 +8,15 @@ In this repository, I store information about the C language that I am learning,
 1. [Getting started](#getting-started)
 2. [About the language](#about-the-language)
 3. [Important concepts](#important-concepts)
-4. [Projects](#projects)
+4. [Programs](#programs)
 
 ## Getting Started
 
-## Projects
+## Programs
 
 |  #  | Title                                             | Difficulty | Code                         |
 | :-: | :------------------------------------------------ | :--------: | :--------------------------: |
-| 01  | 🗓️ Calendar                                       | 🟠         |[view](/projects/01_Calendar)  |
-| 02  | 🔷 Diamond                                        | 🟢         |[view](/projects/02_Diamond)   |
-| 03  | 📋 Table                                          | 🟠         |[view](/projects/03_Table)     |
+| 01  | 🗓️ Calendar                                       | 🟠         |[view](/programs/01_Calendar) |
+| 02  | 🔷 Diamond                                        | 🟢         |[view](/programs/02_Diamond)  |
+| 03  | 📋 Table                                          | 🟠         |[view](/programs/03_Table)    |
+| 04  | 📋 Graph                                          | 🟠         |[view](/programs/03_Table)    |
