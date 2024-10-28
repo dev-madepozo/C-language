@@ -84,7 +84,7 @@ void displayMonthAndYearHeader(int monthNumber, int year)
   int length = strlen(monthName);
   int totalSpaces = MAX_WIDTH - length - 5;
   displayLeftBorder(true);
-  printf("< %s >%*d", monthName, totalSpaces, year);
+  printf("« %s »%*d", monthName, totalSpaces, year);
   displayRightBorder();
 }
 
