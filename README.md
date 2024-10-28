@@ -14,9 +14,10 @@ In this repository, I store information about the C language that I am learning,
 
 ## Programs
 
-|  #  | Title                                             | Difficulty | Code                         |
-| :-: | :------------------------------------------------ | :--------: | :--------------------------: |
-| 01  | 🗓️ Calendar                                       | 🟠         |[view](/programs/01_Calendar) |
-| 02  | 🔷 Diamond                                        | 🟢         |[view](/programs/02_Diamond)  |
-| 03  | 📋 Table                                          | 🟠         |[view](/programs/03_Table)    |
-| 04  | 📊 Graph                                          | 🟠         |[view](/programs/03_Table)    |
+|  #  | Title                                             | Difficulty | Code                          |
+| :-: | :------------------------------------------------ | :--------: | :---------------------------: |
+| 01  | 🗓️ Calendar                                       | 🟠         |[view](/programs/01_Calendar)  |
+| 02  | 🔷 Diamond                                        | 🟢         |[view](/programs/02_Diamond)   |
+| 03  | 📋 Table                                          | 🟠         |[view](/programs/03_Table)     |
+| 04  | 📊 Graph                                          | 🟠         |[view](/programs/04_Graph)     |
+| 05  | ❌ Tic Tac Toe                                    | 🟠         |[view](/programs/05_TicTacToe) |
