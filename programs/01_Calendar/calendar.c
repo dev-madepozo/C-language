@@ -170,7 +170,7 @@ void displayCalendar(int currentDate[], int month, int year)
 
 void displayMenu()
 {
-  printf("\nP => Previous | T => Today | N => Next | Q => To Close\nPress: ");
+  printf("\nP => Previous | T => Today | N => Next | Q => Close\nPress: ");
 }
 
 int main(int argc, char *argv[])
