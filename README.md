@@ -22,3 +22,5 @@ In this repository, I store information about the C language that I am learning,
 | 04  | 📊 Graph                                          | 🟠         |[view](/programs/04_Graph)         |
 | 05  | ❌ Tic Tac Toe                                    | 🟠         |[view](/programs/05_TicTacToe)     |
 | 06  | 🎄 Christmas Tree                                 | 🟢         |[view](/programs/06_ChristmasTree) |
+| 07  | 📒 Crud                                           | 🔴         |[view](/programs/07_Crud)          |
+
