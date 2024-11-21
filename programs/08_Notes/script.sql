@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXITS notes (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  text TEXT NOT NULL CHECK (length(text) <= 140),
+  created_at TEXT NOT NULL,
+  updated_at TEXT NOT NULL
+);
