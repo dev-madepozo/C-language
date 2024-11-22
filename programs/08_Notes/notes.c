@@ -119,6 +119,27 @@ int find_note_by_id(sqlite3 *db, int id)
   return SQLITE_OK;
 }
 
+int update_note(sqlite3 *db, int id, char *new_text)
+{
+  char sql[512];
+  char updated_at[20];
+
+  get_current_time(updated_at);
+  snprintf(sql, sizeof(sql), "UPDATE notes SET text = '%s', updated_at = '%s' WHERE id = %d;", new_text, updated_at, id);
+
+  char *err_msg = 0;
+  int rc = sqlite3_exec(db, sql, 0, 0, &err_msg);
+
+  if (rc != SQLITE_OK)
+  {
+    fprintf(stderr, "SQL error: %s\n", err_msg);
+    sqlite3_free(err_msg);
+    return rc;
+  }
+
+  return SQLITE_OK;
+}
+
 int delete_note(sqlite3 *db, int id)
 {
   char sql[128];
@@ -133,6 +154,21 @@ int delete_note(sqlite3 *db, int id)
   }
 
   return SQLITE_OK;
+}
+
+void display_menu()
+{
+  printf("┌─────────────────────────────┐\n");
+  printf("│     Notes Application       │\n");
+  printf("├─────────────────────────────┤\n");
+  printf("│ 1. Add a new Note           │\n");
+  printf("│ 2. List all Notes           │\n");
+  printf("│ 3. Find a Note by id        │\n");
+  printf("│ 4. Update a Note            │\n");
+  printf("│ 5. Delete a Note            │\n");
+  printf("│ 6. Exit                     │\n");
+  printf("└─────────────────────────────┘\n");
+  printf("Enter an option: ");
 }
 
 int main(int argc, char *argv[])
@@ -158,14 +194,7 @@ int main(int argc, char *argv[])
 
   while (1)
   {
-    printf("\nNotes Application\n");
-    printf("1. Add a new Note\n");
-    printf("2. List all Notes\n");
-    printf("3. Find a Note by id\n");
-    printf("4. Update a Note\n");
-    printf("5. Delete a Note\n");
-    printf("6. Exit\n");
-    printf("Enter an option: ");
+    display_menu();
     scanf("%d", &option);
 
     switch (option)
@@ -206,7 +235,7 @@ int main(int argc, char *argv[])
       break;
     case 2:
       printf("All Notes:\n");
-      printf("------------\n");
+      printf("----------------------------\n");
       read_notes(db);
       break;
     case 3:
@@ -217,7 +246,34 @@ int main(int argc, char *argv[])
     case 4:
       printf("Enter the Note id to update: ");
       scanf("%d", &id);
-      printf("\nEnter the Note text to update: ");
+      printf("Enter a Note text (max 140 characters):\n");
+      getchar();
+      fgets(note_text, sizeof(note_text), stdin);
+      length = strlen(note_text);
+
+      if (length > MAX_TEXT_LENGTH && note_text[MAX_TEXT_LENGTH] != '\n')
+      {
+        printf("Note text exceeds 140 characters.\n");
+      }
+      else
+      {
+        if (note_text[length - 1] == '\n')
+        {
+          note_text[length - 1] = '\0';
+        }
+
+        rc = update_note(db, id, note_text);
+
+        if (rc != SQLITE_OK)
+        {
+          return 1;
+        }
+
+        printf("\033[0;32m");
+        printf("The Note was updated successfully\n");
+        printf("\033[0m");
+      }
+      break;
     case 5:
       printf("Enter the Note id to delete: ");
       scanf("%d", &id);
