@@ -165,7 +165,7 @@ int main(int argc, char *argv[])
       break;
     case 5:
       sqlite3_close(db);
-      printf("Existing progran.\n");
+      printf("Exiting progran.\n");
       return 0;
     default:
       printf("Invalid choice. Please try again.\n");
