@@ -32,7 +32,6 @@ In C programming, operators are symbols used to perform operations on variables 
   ```
 
 - **1.2 Relational Operators**
-
   Relational operators are used to compare two values or variables. They return a boolean result (`true` or `false`)
 
   | Operator | Description              | Example  |
