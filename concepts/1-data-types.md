@@ -2,6 +2,16 @@
 
 In the C programming language, data types define the type of data a variable can hold. Understanding data types is fundamental to effective programming, as it determines the size, layout, and the operations that can be performed on the data.
 
+## Table of Contents
+
+1. [Basic Data Types](#1-basic-data-types)
+2. [Derived Data Types](#2-derived-data-types)
+3. [Type Modifiers](#3-type-modifiers)
+4. [Boolean](#4-boolean)
+5. [Type Size and Limits](#5-type-size-and-limits)
+6. [Conclusion](#6-conclusion)
+7. [References](#7-references)
+
 ## 1. Basic Data Types
 
 - 1.1 `char`(Character)
@@ -167,12 +177,71 @@ C provides several type modifiers that can be used in conjunction with basic dat
   long long num = 100000000000LL;
   ```
 
-## 4. Type Size and Limits
+## 4. Boolean
+
+In C, the concept of booleans is somewhat different from languages like Python or JavaScript, where a dedicated bool type is built-in. While C doesn't have a native bool type in its earlier standards (like C89), it has a way to represent boolean values starting with C99 through the inclusion of the `<stdbool.h>` header.
+
+- 4.1 Before C99 (Using `int` for Booleans)
+
+  Before C99 (the 1999 version of the C standard), if you needed to represent booleans, you'd typically use `int` and define your own `TRUE` and `FALSE` constants. For example:
+
+  ##### Example (Pre-C99 approach):
+
+  ```C
+  #include <stdio.h>
+
+  #define TRUE 1
+  #define FALSE 0
+
+  int main() {
+      int isValid = TRUE;  // Using 1 for true
+      int isComplete = FALSE;  // Using 0 for false
+      
+      if (isValid) {
+          printf("The condition is valid.\n");
+      }
+      
+      if (!isComplete) {
+          printf("The task is not complete.\n");
+      }
+      
+      return 0;
+  }
+  ```
+
+- 4.2 `bool` (C99 and Later)
+  * **Description:** In C99 and later, the `<stdbool.h>` header introduces the `bool` type, making it easier to write more readable and standarized boolean expressions.
+  * **Values:**
+    * `true` represents a boolean true value (which is internally `1`).
+    * `false` represents a boolean false value (which is internally `0`).
+  
+  ##### Example:
+
+  ```C
+  #include <stdbool.h>
+
+  int main() {
+      bool isValid = true;  // true is equivalent to 1
+      bool isComplete = false;  // false is equivalent to 0
+      
+      if (isValid) {
+          printf("The condition is valid.\n");
+      }
+      
+      if (!isComplete) {
+          printf("The task is not complete.\n");
+      }
+
+      return 0;
+  }
+  ```
+
+## 5. Type Size and Limits
 
 In C, the exact size of a data type can vary depending on the platform (architecture, compiler, etc.). However, the C standard provides some guidelines about the minimum sizes and ranges.
 
 - 4.1 `sizeof` Operator
-  * The `sizeof`operator can be used to determine the size of a data type or variable.
+  The `sizeof`operator can be used to determine the size of a data type or variable.
 
   ##### Example:
 
@@ -181,7 +250,7 @@ In C, the exact size of a data type can vary depending on the platform (architec
   printf("Size of double: %zu bytes\n", sizeof(double));
   ```
 - 4.2 Limits of Data Types
-  * C provides the `limits.h` and `float.h` headers that define the limits for integer and floating-point types.
+  C provides the `limits.h` and `float.h` headers that define the limits for integer and floating-point types.
 
   ##### Example:
 
@@ -190,3 +259,60 @@ In C, the exact size of a data type can vary depending on the platform (architec
   printf("Maximum value of int: %d\n", INT_MAX);
   printf("Minimum value of int: %d\n", INT_MIN);
   ```
+
+- 4.3 Boolean Expressions
+  In C, boolean expressions (such a `if` conditions, loops, etc.) evaluate any non-zero value as `true` and `0` as `false`. This applies whether you use `int`, `bool` or custom definitions like `TRUE` or `FALSE`.
+
+  ##### Example:
+
+  ```C
+  #include <stdbool.h>  // C99 and later
+
+  int main() {
+      int x = 10;
+      bool isPositive = (x > 0);  // Evaluates to true since x is positive
+      
+      if (isPositive) {
+          printf("x is positive.\n");
+      }
+
+      return 0;
+  }
+  ```
+
+- 4.4 Logical Operators for Booleans
+  C supports logical operators to perform boolean operations:
+  * `&&` (Logical AND)
+  * `||` (Logical OR)
+  * `!` (Logical NOT)
+
+  These operators work as expected with boolean values, returning `true` (non-zero) or `false` (zero).
+
+  ##### Example:
+
+  ```C
+  #include <stdbool.h> 
+
+  int main() {
+      bool a = true;
+      bool b = false;
+
+      if (a && !b) {
+          printf("Condition is true.\n");  // This will be printed
+      }
+
+      if (a || b) {
+          printf("At least one is true.\n");  // This will also be printed
+      }
+
+      return 0;
+  }
+  ```
+
+## 6. Conclusion
+
+C provides a rich set of data types that allow for efficient and flexible memory usage. By choosing the right data type for the job, you can optimize your program's performance and ensure its correctness. Understanding pointers, arrays, structures, and the various modifiers is essential to mastering C programming.
+
+## 7. References:
+- C Programming Language by Brian W. Kernighan and Dennis M. Ritchie (2nd Edition)
+- ISO/IEC 9899:2018 - The C Programming Standard
