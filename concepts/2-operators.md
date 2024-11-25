@@ -5,7 +5,9 @@ In C programming, operators are symbols used to perform operations on variables 
 ## Table of Contents
 
 1. [Types of Operators](#1-types-of-operators)
-
+2. [Operator Precedence and Associativity](#2-operator-precedence-and-associativity)
+3. [Summary](#3-summary)
+4. [References](#4-references)
 
 ## 1. Types of Operators
 
@@ -91,10 +93,123 @@ In C programming, operators are symbols used to perform operations on variables 
   **Example:**
 
   ```C
-  int a = 5, b = 3; // a = 0101, b = 0011 (binary)
+  int a = 5, b = 3;        // a = 0101, b = 0011 (binary)
   int and_result = a & b;  // and_result = 1 (binary 0001)
   int or_result = a | b;   // or_result = 7 (binary 0111)
   int xor_result = a ^ b;  // xor_result = 6 (binary 0110)
   int not_result = ~a;     // not_result = -6 (two's complement)
   ```
 
+- **1.5 Assignment Operators**
+
+  Assignment operators are used to assign values to variables. They combine assignment with other operations.
+
+  | Operator | Description         | Example  |
+  | :------: | :------------------ | :------: |
+  | `=`      | Simple assignment   | `a = b`  |
+  | `+=`     | Add and assign      | `a += b` |
+  | `-=`     | Subtract and assign | `a -= b` |
+  | `*=`     | Multiply and assign | `a *= b` |
+  | `/=`     | Divide and assign   | `a /= b` |
+  | `%=`     | Modulo and assign   | `a %= b` |
+
+  **Example:**
+
+  ```C
+  int a = 5, b = 3;
+  a += b;  // a = a + b -> a = 8
+  a *= 2;  // a = a * 2 -> a = 16
+  ```
+
+- **1.6 Unary Operators**
+
+  Unary operators are applied to a single operand. They can perform operations such as incrementing, decrementing, and negating.
+
+  | Operator | Description | Example        |
+  | :------: | :---------- | :------------: |
+  | `++`     | Increment   | `a++` or `++a` |
+  | `--`     | Decrement   | `a--` or `--a` |
+  | `+`      | Unary plus  | `+a`           |
+  | `-`      | Unary minus | `-a`           |
+  | `!`      | Logical NOT | `!a`           |
+  | `~`      | Bitwise NOT | `~a`           |
+
+  **Example:**
+
+  ```C
+  int a = 5;
+  a++;   // a = 6 (post-increment)
+  ++a;   // a = 7 (pre-increment)
+  a--;   // a = 6 (post-decrement)
+  --a;   // a = 5 (pre-decrement)
+  ```
+
+- **1.7 Conditional (Ternary) Operator**
+
+  The conditional operator (also known as the ternary operator) is a shorthand for an `if-else` statement.
+
+  | Operator | Description           | Example                     |
+  | :------: | :-------------------- | :-------------------------: |
+  | `? :`    | Conditional (ternary) | `condition ? expr1 : expr2` |
+
+  **Example:**
+
+  ```C
+  int a = 10, b = 20;
+  int max = (a > b) ? a : b; // max will be 20
+  ```
+
+- **1.8 Comma Operator**
+
+  The comma operator allows you to evaluate multiple expressions, but only the result of the last expression is returned.
+
+  | Operator | Description    | Example               |
+  | :------: | :------------- | :-------------------: |
+  | `,`      | Comma operator | `expr1, expr2, expr3` |
+
+  **Example:**
+
+  ```C
+  int a = 5, b = 10;
+  int result = (a++, b++, a + b); // a is incremented to 6, b to 11, result = 17
+  ```
+
+## 2. Operator Precedence and Associativity
+
+  Operator precedence determines the order in which operators are evaluated in an expression. Operators with higher precedence are evaluated first. If two operators have the same precedence, associativity defines the order of evaluation.
+
+- **2.1 Precedence Table (from highest to lowest)**
+
+  | Operator Type	| Operators                                                            |
+  | :------------ | :------------------------------------------------------------------- |
+  | Postfix       | `expr++`, `expr--`                                                   |
+  | Prefix        | `++expr`, `--expr`, `+`, `-`, `!`, `~`, `sizeof`, `&`, `*`, `sizeof` |
+  | Arithmetic    | `*`, `/`, `%`                                                        |
+  | Relational    | `<`, `<=`, `>`, `>=`                                                 |
+  | Equality      | `==`, `!=`                                                           |
+  | Bitwise       | `&`, `^`, `\|`                                                       |
+  | Logical       | `&&`, `\|\|`                                                         |
+  | Conditional   | `? :`                                                                |
+  | Assignment    | `=`, `+=`, `-=`, `*=`, `/=`, `%=`                                    |
+  | Comma         | `,`                                                                  |
+
+- **2.2 Associativity**
+
+  - Most operators have left-to-right associativity, meaning they are evaluated from left to right.
+  - Assignment (`=`), conditional (`? :`), and increment/decrement (`++`, `--`) operators have right-to-left associativity.
+
+## 3. Summary
+
+In C, operators are crucial to performing various tasks such as arithmetic calculations, comparisons, logical tests, and bit manipulation. Understanding the different types of operators and their precedence is essential for writing efficient and correct C programs.
+
+#### Key Takeaways:
+
+- Arithmetic operators allow you to perform mathematical operations.
+- Relational and logical operators are used for comparisons and logical operations.
+- Bitwise operators help manipulate data at the bit level.
+- Assignment operators enable the modification of variables.
+- Unary and ternary operators simplify code for single operand or conditional operations.
+
+## 4. References:
+- C Programming Language by Brian W. Kernighan and Dennis M. Ritchie (2nd Edition)
+- ISO/IEC 9899:2018 - The C Programming Standard
