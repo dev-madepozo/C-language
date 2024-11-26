@@ -6,6 +6,9 @@ Control flow in C refers to the order in which individual statements, instructio
 
 1. [Conditional Statements](#1-conditional-statements)
 2. [Looping Statements](#2-looping-statements)
+3. [Control Flow Statements](#3-control-flow-statements)
+4. [Summary](#4-summary)
+5. [References](#4-references)
 
 ## 1. Conditional Statements
 
@@ -284,3 +287,21 @@ C also provides several control flow statements that alter the normal flow of ex
     i++;
     goto start;
   ```
+
+## 4. Summary
+
+| Control Statement | Description                                                                                 |
+| :---------------- | :------------------------------------------------------------------------------------------ |
+| `if` / `else`     | Conditional branching based on a boolean expression.                                        |
+| `switch`          | Multiple conditional branching based on the value of an expression.                         |
+| `for`             | A loop that runs a known number of times, with initialization, condition, and iteration.    |
+| `while`           | A loop that runs while the condition is true, checking before each iteration.               |
+| `do-while`        | A loop that runs at least once, checking the condition after the iteration.                 |
+| `break`           | Exits from the nearest loop or `switch` statement.                                          |
+| `continue`        | Skips the current iteration and continues with the next iteration of the loop.              |
+| `return`          | Exits a function and optionally returns a value.                                            |
+| `goto`            | Transfers control to another part of the program (rarely used, discouraged in modern code). |
+
+## 5. References:
+- C Programming Language by Brian W. Kernighan and Dennis M. Ritchie (2nd Edition)
+- ISO/IEC 9899:2018 - The C Programming Standard
