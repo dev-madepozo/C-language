@@ -6,14 +6,14 @@ Control flow in C refers to the order in which individual statements, instructio
 
 1. [Conditional Statements](#1-conditional-statements)
 
-Conditional statements allow a program to execute certain blocks of code based on whether a condition is true or false.
-
 ## 1. Conditional Statements
 
+Conditional statements allow a program to execute certain blocks of code based on whether a condition is true or false.
+
 - **1.1 `if` Statement**
-  \
+
   The `if` statement is used to evaluate a condition and execute a block of code only if the condition is true.
-  \
+
   **Syntax:**
 
   ```c
@@ -32,9 +32,9 @@ Conditional statements allow a program to execute certain blocks of code based o
   ```
 
 - **1.2 `if-else` Statement**
-  \
+
   The `if-else` statement allows you to specify a block of code to execute when the condition is false.
-  \
+
   **Syntax:**
   ```c
   if (condition) {
@@ -51,5 +51,70 @@ Conditional statements allow a program to execute certain blocks of code based o
     printf("a is positive\n");
   } else {
     printf("a is not positive\n");
+  }
+  ```
+
+- **1.3 `if-else if-else` Statement**
+
+  The `if-else if-else` statement allows you to check multiple conditions sequentially.
+
+  **Syntax:**
+
+  ```c
+  if (condition1) {
+    // Code to execute if condition1 is true
+  } else if (condition2) {
+    // Code to execute if condition2 is true
+  } else {
+    // Code to execute if no condition is true
+  }
+  ```
+
+  **Example:**
+
+  ```c
+  int a = 0;
+  if (a > 0) {
+    printf("a is positive\n");
+  } else if (a < 0) {
+    printf("a is negative\n");
+  } else {
+    printf("a is zero\n");
+  }
+  ```
+
+- **1.4 `switch` Statement**
+
+  The `switch` statement is used when you have multiple conditions based on the value of a single variable. It is an alternative to multiple `if-else` conditions when checking for equality.
+
+  ```c
+  switch (expression) {
+    case constant1:
+      // Code to execute if expression == constant1
+      break;
+    case constant2:
+      // Code to execute if expression == constant2
+      break;
+    default:
+      // Code to execute if expression does not match any case
+  }
+  ```
+
+  **Example:**
+
+  ```c
+  int day = 3;
+  switch (day) {
+    case 1:
+      printf("Monday\n");
+      break;
+    case 2:
+      printf("Tuesday\n");
+      break;
+    case 3:
+      printf("Wednesday\n");
+      break;
+    default:
+      printf("Invalid day\n");
   }
   ```
