@@ -190,3 +190,97 @@ Loops are used to repeatedly execute a block of code as long as a specified cond
   } while (i < 5);
   ```
 
+## 3. Control Flow Statements
+
+C also provides several control flow statements that alter the normal flow of execution inside loops and functions.
+
+- **3.1 `break` Statement**
+
+  The `break` statement is used to exit a loop or switch statement prematurely.
+
+  **Syntax:**
+
+  ```c
+  break;
+  ```
+
+  **Example:**
+
+  ```c
+  for (int i = 0; i < 10; i++) {
+    if (i == 5) {
+      break;  // Exit the loop when i is 5
+    }
+    printf("%d\n", i);  // Prints 0, 1, 2, 3, 4
+  }
+  ```
+
+- **3.2 `continue` Statement**
+
+  The `continue` statement is used to skip the current iteration of a loop and proceed to the next iteration.
+
+  **Syntax:**
+
+  ```c
+  continue;
+  ```
+
+  **Example:**
+
+  ```c
+  for (int i = 0; i < 5; i++) {
+    if (i == 2) {
+        continue;  // Skip when i is 2
+    }
+    printf("%d\n", i);  // Prints 0, 1, 3, 4
+  }
+  ```
+
+- **3.3 `return` Statement**
+
+  The `return` statement is used to exit from a function and optionally return a value. In void functions, it can be used simply to exit the function.
+
+  **Syntax:**
+
+  ```c
+  return value;  // For functions that return a value
+  return;        // For functions that do not return a value
+  ```
+
+  **Example:**
+
+  ```c
+  int add(int a, int b) {
+    return a + b;
+  }
+
+  int main() {
+    int result = add(3, 4);  // result = 7
+    printf("%d\n", result);
+    return 0;
+  }
+  ```
+
+- **3.4 `goto` Statement**
+
+  The `goto` statement is used to jump to a specific point in the program, typically labeled as a tag. However, the use of goto is discouraged in most cases due to the potential for creating "spaghetti code" that is difficult to follow.
+
+  **Syntax:**
+
+  ```c
+  goto label;
+  ...
+  label:
+      // Code to execute after the jump
+  ```
+
+  **Example:**
+
+  ```c
+  int i = 0;
+  start:
+    if (i >= 5) return;
+    printf("%d\n", i);  // Prints 0, 1, 2, 3, 4
+    i++;
+    goto start;
+  ```
