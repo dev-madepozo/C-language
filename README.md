@@ -96,10 +96,14 @@ This repository covers a range of fundamental and advanced concepts in C program
 
 ## Other resources
 
-Some free courses on YouTube that can also help you
+Some free courses on YouTube that can also help you:
 
 - [C Programming for Beginners by Programiz](https://www.youtube.com/playlist?list=PL98qAXLA6aftD9ZlnjpLhdQAOFI8xIB6e)
 - [Advanced C by Charles Cabergs](https://www.youtube.com/playlist?list=PL71Y0EmrppR0KyZvQWj63040UEzKQU7n8)
+
+Some website where you can also learn::
+
+- [Geeksforgeeks](https://www.geeksforgeeks.org/c-programming-language/)
 
 ## Programs
 
