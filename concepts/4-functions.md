@@ -7,6 +7,8 @@ Functions are a fundamental part of C programming. They allow you to organize yo
 1. [What is a Function?](#1-what-is-a-function)
 2. [Function Declaration (Prototypes)](#2-function-declaration-prototypes)
 3. [Function Definition](#3-function-definition)
+4. [Function Call](#4-function-call)
+5. [Return Type](#5-return-type)
 
 ## 1. What is a Function?
 
@@ -71,3 +73,70 @@ Functions are a fundamental part of C programming. They allow you to organize yo
   - `add` is a user-defined function that takes two integers as parameters (`a` and `b`) and returns their sum.
   - The `main` function call `add(3, 4)` and stores the result in the variable `result`.
 
+## 4. Function Call
+
+  To execute the code inside a function, you need to call it from another function, usually `main()`. A function call consists of the function name followed by a list of arguments in parentheses (if the function takes parameters).
+
+  **Syntax:**
+
+  ```c
+  function_name(argument1, argument2, ...);
+  ```
+
+  **Example:+*
+  ```c
+  int main() {
+    int result = add(10, 20);  // Calling the add function
+    printf("The sum is: %d\n", result);
+    return 0;
+  }
+  ```
+
+  In this case, `add(10, 20)` is the function call, and it passes the values `10` and `20` as arguments to the add function.
+
+## 5. Return Type
+
+  The return type specifies the type of value the function will return to the caller. If the function does not return a value, the return type is specified as `void`.
+
+- **5.1 Functions with Return Values**
+
+  If the function returns a value, you need to specify the return type, and use the `return` statement to return the value.
+
+  **Example:**
+
+  ```c
+  int multiply(int x, int y) {
+    return x * y;  // Returns the product of x and y
+  }
+  ```
+
+- **5.2 Functions with No Return Value**
+
+  If a function does not return a value, you use the `void` keyword as the return type.
+
+  **Example:**
+
+  ```c
+  void printMessage() {
+    printf("Hello, World!\n");
+  }
+  ```
+
+- **5.3 Using return in Functions**
+
+  The `return` statement exits a function and optionally returns a value to the caller. If the function is of type `void`, the `return` statement is used without any return value.
+
+  **Examples:**
+
+  ```c
+  // Returning a value
+  int square(int n) {
+    return n * n; // Return the square of n
+  }
+
+  // Using return in a void function
+  void printMessage() {
+    printf("Function execution completed.\n");
+    return;  // End of the function (optional for void functions)
+  }
+  ```
