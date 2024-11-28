@@ -9,6 +9,8 @@ Functions are a fundamental part of C programming. They allow you to organize yo
 3. [Function Definition](#3-function-definition)
 4. [Function Call](#4-function-call)
 5. [Return Type](#5-return-type)
+6. [Passing Arguments to Functions](#6-passing-arguments-to-functions)
+7. [Function Overloading](#7-function-overloading-not-supported-in-c)
 
 ## 1. What is a Function?
 
@@ -188,3 +190,7 @@ Functions are a fundamental part of C programming. They allow you to organize yo
   ```
 
   In this example, `changeValue(&x)` passes the address of `x` to the function. The function modifies the original value of `x` via the pointer `a`.
+
+## 7. Function Overloading (Not Supported in C)
+
+  C does not support function overloading, which is a feature present in languages like C++ where you can have multiple functions with the same name but different parameter types. In C, all functions must have unique names.
