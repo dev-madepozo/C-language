@@ -140,3 +140,51 @@ Functions are a fundamental part of C programming. They allow you to organize yo
     return;  // End of the function (optional for void functions)
   }
   ```
+
+## 6. Passing Arguments to Functions
+
+  There are two ways to pass arguments to functions in C:
+
+  * **Pass by Value**: The actual value of the argument is passed to the function.
+  * **Pass by Reference** (using pointers): The memory address of the argument is passed, allowing the function to modify the original value.
+
+- **6.1 Pass by Value**
+
+  In pass by value, the function gets a copy of the argument value, and any changes made to the parameter inside the function do not affect the original argument.
+
+  **Example:**
+
+  ```c
+  void changeValue(int a) {
+    a = 10;  // This change will not affect the original variable
+  }
+
+  int main() {
+      int x = 5;
+      changeValue(x);
+      printf("x = %d\n", x);  // Output: x = 5 (unchanged)
+      return 0;
+  }
+
+  ```
+
+- **6.2 Pass by Reference**
+
+  In pass by reference, the function receives the memory address (pointer) of the argument, so any changes made to the parameter will affect the original argument.
+
+  **Example:**
+
+  ```c
+  void changeValue(int *a) {
+    *a = 10;  // Dereferencing pointer to change the original variable
+  }
+
+  int main() {
+      int x = 5;
+      changeValue(&x);  // Pass the address of x
+      printf("x = %d\n", x);  // Output: x = 10
+      return 0;
+  }
+  ```
+
+  In this example, `changeValue(&x)` passes the address of `x` to the function. The function modifies the original value of `x` via the pointer `a`.
