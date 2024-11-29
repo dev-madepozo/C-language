@@ -13,6 +13,8 @@ Functions are a fundamental part of C programming. They allow you to organize yo
 7. [Function Overloading](#7-function-overloading-not-supported-in-c)
 8. [Recursion](#8-recursion)
 9. [Standard Library Functions](#9-standard-library-functions)
+10. [Summary](#10-summary)
+11. [References](#11-references)
 
 ## 1. What is a Function?
 
@@ -233,3 +235,19 @@ Functions are a fundamental part of C programming. They allow you to organize yo
   - `malloc()`: Allocates dynamic memory.
 
   These functions are part of the C Standard Library and can be used by including the appropriate header files, such as `stdio.h`, `string.h`, `stdlib.h`, etc.
+
+## 10. Summary
+
+  Functions are a powerful feature in C programming that allow you to write modular, reusable, and organized code. You can create functions with or without return values, pass arguments by value or by reference, and even call functions recursively to solve problems efficiently.
+
+  Key points:
+
+  - **Function Declaration:** Declares the function's return type, name, and parameters (optional).
+  - **Function Definition:** Defines the body of the function with the actual logic.
+  - **Function Call:** Invokes the function from another part of the program.
+  - **Return Type:** Specifies the type of value returned (or void if no value is returned).
+  - **Parameter Passing:** Pass by value (copy of data) or pass by reference (pointer to data).
+
+## 11. References:
+- C Programming Language by Brian W. Kernighan and Dennis M. Ritchie (2nd Edition)
+- ISO/IEC 9899:2018 - The C Programming Standard
