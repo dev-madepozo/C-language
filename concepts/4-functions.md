@@ -11,10 +11,12 @@ Functions are a fundamental part of C programming. They allow you to organize yo
 5. [Return Type](#5-return-type)
 6. [Passing Arguments to Functions](#6-passing-arguments-to-functions)
 7. [Function Overloading](#7-function-overloading-not-supported-in-c)
+8. [Recursion](#8-recursion)
+9. [Standard Library Functions](#9-standard-library-functions)
 
 ## 1. What is a Function?
 
-  A function in C is a block of code that performs a specific task. Functions can take input in the form of parameters, perform operations, and return a result. Functions help break down complex problems into smaller, manageable chunks.
+  A function in C is a block of code that performs a specific task. Functions can take input in the form of parameters, perform operations, and return a result. Functions help break down complex problems into smaller, mvanageable chunks.
 
   Functions in C can be categorized into two types:
 
@@ -194,3 +196,40 @@ Functions are a fundamental part of C programming. They allow you to organize yo
 ## 7. Function Overloading (Not Supported in C)
 
   C does not support function overloading, which is a feature present in languages like C++ where you can have multiple functions with the same name but different parameter types. In C, all functions must have unique names.
+
+
+## 8. Recursion
+
+  Recursion is a technique where a function calls itself in order to solve a problem. Recursive functions are useful for problems that can be divided into smaller, similar sub-problems.
+
+  **Example:**
+
+  ```c
+  int factorial(int n) {
+    if (n == 0) {
+        return 1;  // Base case
+    }
+
+    return n * factorial(n - 1);  // Recursive case
+  }
+
+  int main() {
+    int result = factorial(5);  // 5! = 120
+    printf("Factorial of 5 is: %d\n", result);
+    return 0;
+  }
+  ```
+
+  In this example, the `factorial` function calls itself with `n-1` until it reaches the base case `n == 0`.
+
+## 9. Standard Library Functions
+
+  C provides a rich set of standard library functions for performing common tasks. Some commonly used library functions include:
+
+  - `printf()`: Prints output to the console.
+  - `scanf()`: Reads input from the user.
+  - `strlen()`: Returns the length of a string.
+  - `strcpy()`: Copies one string into another.
+  - `malloc()`: Allocates dynamic memory.
+
+  These functions are part of the C Standard Library and can be used by including the appropriate header files, such as `stdio.h`, `string.h`, `stdlib.h`, etc.
