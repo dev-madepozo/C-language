@@ -11,7 +11,9 @@ Welcome!, This repository is a comprehensive resource for learning the C program
 5. [Books](#Books)
 6. [Other resources](#Other-resources)
 7. [Programs](#programs)
-8. [Contact](#contact)
+8. [How to Contribute](#how-to-contribute)
+9. [Contact](#contact)
+10. [License](#license)
 
 ## About
 
@@ -122,6 +124,10 @@ Here are some websites where you can also learn:
 | 08  | 🗒️ Notes                                          | 🔴         |[view](/programs/08_Notes)         |
 | 09  | 🌀 Fibonacci                                      | 🟢         |[view](/programs/09_Fibonacci)     |
 
+## How to contribute
+
+If you'd like to contribute to this repository, feel free to fork it and submit a pull request with your suggestions or improvements.
+
 ## Contact
 
 Feel free to connect with me if you have any questions, suggestions, or just want to chat:
@@ -129,3 +135,7 @@ Feel free to connect with me if you have any questions, suggestions, or just wan
 - LinkedIn: [Manuel Del Pozo](https://www.linkedin.com/in/madepozo/)
 
 Thank you for visiting this repository and happy coding!
+
+## License
+
+This repository is licensed under the MIT License.
