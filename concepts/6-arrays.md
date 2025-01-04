@@ -1,3 +1,3 @@
-# Arrys in C
+# Arrays in C
 
 ## Table of Contents
