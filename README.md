@@ -132,7 +132,7 @@ If you'd like to contribute to this repository, feel free to fork it and submit 
 
 Feel free to connect with me if you have any questions, suggestions, or just want to chat:
 
-- LinkedIn: [Manuel Del Pozo](https://www.linkedin.com/in/madepozo/)
+LinkedIn: [Manuel Del Pozo](https://www.linkedin.com/in/madepozo/)
 
 Thank you for visiting this repository and happy coding!
 
