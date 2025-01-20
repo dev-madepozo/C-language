@@ -8,6 +8,10 @@ Arrays are a fundamental data structure in C that allow storing multiple values 
 2. [Array Declaration and Initialization](#2-array-declaration-and-initialization)
 3. [Array Access](#3-array-access)
 4. [Types of Arrays](#4-types-of-arrays)
+5. [Common Operations on Arrays](#5-common-operations-on-arrays)
+6. [Array Limitations](#6-array-limitations)
+7. [Conclusion](#7-conclusion)
+8. [References](#8-references)
 
 ## 1. Array Basics
 
@@ -173,3 +177,19 @@ printf("%d", arr[1]);  // Outputs: 20
   }
   ```
 
+## 6. Array Limitations
+
+- `Fixed Size`: The size of an array in C is fixed at the time of declaration. For dynamic array sizing, you would need to use dynamic memory allocation (e.g., malloc or calloc).
+
+- `Out-of-Bounds Access`: C does not perform bounds checking, meaning if you access an index outside the array size, it leads to undefined behavior (often causing segmentation faults).
+
+- `No Built-in Length`: Arrays in C do not store their length, so it must be tracked manually or calculated using sizeof.
+
+## 7. Conclusion
+
+Arrays in C provide a simple and efficient way to store and manage collections of data. While they are one of the most basic data structures in C, mastering their usage is essential for any C programmer. Understanding how to declare, initialize, and operate on arrays is crucial for building efficient and robust applications.
+
+## 8. References
+
+- "The C Programming Language" by Brian W. Kernighan and Dennis M. Ritchie (2nd Edition)
+- ISO/IEC 9899:2018 - The C Programming Standard
