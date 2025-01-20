@@ -99,3 +99,77 @@ printf("%d", arr[1]);  // Outputs: 20
   int arr[2][3][4];  // A 3D array with dimensions 2x3x4
   ````
 
+## 5. Common Operations on Arrays
+
+- 5.1 Array Traversal
+
+  To traverse (or loop through) an array, you can use a loop to access each element in the array.
+
+  **Example:**
+
+  ```c
+  int arr[5] = {1, 2, 3, 4, 5};
+  for (int i = 0; i < 5; i++) {
+      printf("%d ", arr[i]);  // Outputs: 1 2 3 4 5
+  }
+  ```
+
+- 5.2 Copying Arrays
+
+  Arrays in C cannot be directly copied using assignment. You need to use a loop to copy elements from one array to another.
+
+  **Example:**
+
+  ```c
+  int arr1[5] = {1, 2, 3, 4, 5};
+  int arr2[5];
+  for (int i = 0; i < 5; i++) {
+      arr2[i] = arr1[i];
+  }
+  ```
+
+- 5.3 Finding the Length of an Array
+
+  In C, arrays do not store their length, so you need to either track it manually or use the `sizeof` operator to calculate it.
+
+  **Example:**
+
+  ```c
+  int arr[5] = {1, 2, 3, 4, 5};
+  int length = sizeof(arr) / sizeof(arr[0]);  // Length = 5
+  printf("Length of array: %d\n", length);
+  ```
+
+- 5.4 Summing Array Elements
+
+  A common operation is to sum the elements of an array. This can be done with a simple loop.
+
+  **Example:**
+
+  ```c
+  int arr[5] = {1, 2, 3, 4, 5};
+  int sum = 0;
+  for (int i = 0; i < 5; i++) {
+      sum += arr[i];  // Sum becomes 15
+  }
+  printf("Sum of elements: %d\n", sum);  // Outputs: 15
+  ```
+
+- 5.5 Reversing an Array
+
+  Reversing an array can be done by swapping elements from the start with elements from the end.
+
+  **Example:**
+
+  ```c
+  int arr[5] = {1, 2, 3, 4, 5};
+  int temp, start = 0, end = 4;
+  while (start < end) {
+      temp = arr[start];
+      arr[start] = arr[end];
+      arr[end] = temp;
+      start++;
+      end--;
+  }
+  ```
+
