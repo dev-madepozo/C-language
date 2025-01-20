@@ -7,6 +7,7 @@ Arrays are a fundamental data structure in C that allow storing multiple values 
 1. [Array Basics](#1-array-basics)
 2. [Array Declaration and Initialization](#2-array-declaration-and-initialization)
 3. [Array Access](#3-array-access)
+4. [Types of Arrays](#4-types-of-arrays)
 
 ## 1. Array Basics
 
@@ -65,3 +66,36 @@ int arr[3] = {10, 20, 30};
 printf("%d", arr[0]);  // Outputs: 10
 printf("%d", arr[1]);  // Outputs: 20
 ```
+
+## 4. Types of Arrays
+
+- 4.1 One-dimensional Arrays
+
+  A one-dimensional array is the simplest form of an array. It is a list of elements of the same data type.
+
+  **Example:**
+
+  ```c
+  int arr[5] = {1, 2, 3, 4, 5};
+  ```
+
+- 4.2 Two-dimensional Arrays
+
+  A two-dimensional array is essentially an array of arrays. It is often used to represent matrices or grids.
+
+  **Example:**
+
+  ```c
+  int matrix[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+  ```
+
+- 4.3 Multidimensional Arrays
+
+  You can define arrays with more than two dimensions. Each additional dimension adds a level of complexity for organizing and accessing the data.
+
+  **Example:**
+
+  ```c
+  int arr[2][3][4];  // A 3D array with dimensions 2x3x4
+  ````
+
