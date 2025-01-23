@@ -10,6 +10,8 @@ Pointers are one of the most powerful and essential features of the C programmin
 4. [Pointer Arithmetic](#4-pointer-arithmetic)
 5. [Pointers and Arrays](#5-pointers-and-arrays)
 6. [Pointers to Functions](#6-pointers-to-functions)
+7. [Dynamic Memory Allocation](#7-dynamic-memory-allocation)
+8. [Pointer Limitations and Risks](#8-pointer-limitations-and-risks)
 
 ## 1. Pointer Basics
 
@@ -131,3 +133,43 @@ Pointers in C can be incremented or decremented, and you can perform arithmetic 
   ```
 
   In this example, `func_ptr` and `add_ptr` are function pointers, and they are used to call the respective functions.
+
+## 7. Dynamic Memory Allocation
+
+  Pointers are essential for dynamic memory allocation, which is used to allocate memory at runtime using functions like `malloc()`, `calloc()`, `realloc()`, and `free()`.
+
+  **Example:**
+
+  ```c
+  #include <stdlib.h>
+
+  int main() {
+      int *ptr = (int *)malloc(5 * sizeof(int));  // Allocates memory for 5 integers
+
+      if (ptr != NULL) {
+          for (int i = 0; i < 5; i++) {
+              ptr[i] = i + 1;  // Initialize array elements
+          }
+
+          for (int i = 0; i < 5; i++) {
+              printf("%d ", ptr[i]);  // Outputs: 1 2 3 4 5
+          }
+
+          free(ptr);  // Don't forget to free the memory
+      }
+      
+      return 0;
+  }
+  ```
+
+  Here, `malloc()` allocates memory dynamically, and `free()` releases the memory when no longer needed. Always ensure to free dynamically allocated memory to avoid memory leaks.
+
+## 8. Pointer Limitations and Risks
+
+- `Dangling Pointers:` A pointer that references memory that has been freed or goes out of scope is called a dangling pointer. Dereferencing it causes undefined behavior.
+
+- `Null Pointers:` A pointer that points to NULL is considered a null pointer. Always check for NULL before dereferencing a pointer.
+
+- `Memory Leaks:` Failing to free dynamically allocated memory can result in memory leaks, where memory is no longer used but cannot be reclaimed.
+
+- `Pointer Errors:` Incorrect pointer operations, such as accessing memory outside allocated bounds, can lead to segmentation faults and undefined behavior.
