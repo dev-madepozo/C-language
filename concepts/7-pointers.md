@@ -9,6 +9,7 @@ Pointers are one of the most powerful and essential features of the C programmin
 3. [Pointer Dereferencing](#3-pointer-dereferencing)
 4. [Pointer Arithmetic](#4-pointer-arithmetic)
 5. [Pointers and Arrays](#5-pointers-and-arrays)
+6. [Pointers to Functions](#6-pointers-to-functions)
 
 ## 1. Pointer Basics
 
@@ -88,17 +89,45 @@ Pointers in C can be incremented or decremented, and you can perform arithmetic 
 
 ## 5. Pointers and Arrays
 
-Arrays and pointers are closely related in C. In fact, the name of an array is a constant pointer to the first element of the array. You can use pointers to traverse and modify array elements.
+  Arrays and pointers are closely related in C. In fact, the name of an array is a constant pointer to the first element of the array. You can use pointers to traverse and modify array elements.
 
-**Example:**
+  **Example:**
 
-```c
-int arr[3] = {10, 20, 30};
-int *ptr = arr;  // Pointer to the first element of the array
+  ```c
+  int arr[3] = {10, 20, 30};
+  int *ptr = arr;  // Pointer to the first element of the array
 
-printf("%d\n", *ptr);      // Outputs: 10
-ptr++;                    // Move to the next element
-printf("%d\n", *ptr);      // Outputs: 20
-```
+  printf("%d\n", *ptr);      // Outputs: 10
+  ptr++;                    // Move to the next element
+  printf("%d\n", *ptr);      // Outputs: 20
+  ```
 
-`Key Concept:` Arrays and pointers can often be used interchangeably, but there are subtle differences, particularly in terms of memory allocation.
+  `Key Concept:` Arrays and pointers can often be used interchangeably, but there are subtle differences, particularly in terms of memory allocation.
+
+## 6. Pointers to Functions
+
+  You can define pointers to functions, which allows passing functions as arguments to other functions, or dynamically selecting which function to call.
+
+  **Example:**
+
+  ```c
+  #include <stdio.h>
+
+  void hello() {
+      printf("Hello, World!\n");
+  }
+
+  int add(int a, int b) {
+      return a + b;
+  }
+
+  int main() {
+      void (*func_ptr)() = hello;  // Pointer to a function that takes no arguments
+      func_ptr();  // Calls hello()
+      
+      int (*add_ptr)(int, int) = add;  // Pointer to a function that takes two ints
+      printf("%d\n", add_ptr(2, 3));  // Calls add() and outputs: 5
+  }
+  ```
+
+  In this example, `func_ptr` and `add_ptr` are function pointers, and they are used to call the respective functions.
