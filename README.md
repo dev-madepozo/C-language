@@ -86,8 +86,8 @@ This repository covers a range of fundamental and advanced concepts in C program
 - [Control Flow](/concepts/3-control-flow.md)
 - [Functions](/concepts/4-functions.md)
 - [Strings](/concepts/5-strings.md) `⏳ soon`
-- [Arrays](/concepts/6-arrays.md) `⏳ soon`
-- [Pointers](/concepts/7-pointers.md) `⏳ soon`
+- [Arrays](/concepts/6-arrays.md)
+- [Pointers](/concepts/7-pointers.md)
 - [Structures](/concepts/8-structures.md) `⏳ soon`
 - [Files](/concepts/9-files.md) `⏳ soon`
 - [Sqlite3](/concepts/10-sqlite3.md) `⏳ soon`
