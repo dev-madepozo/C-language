@@ -9,6 +9,9 @@ Structures are a powerful feature in C that allow you to define complex data typ
 3. [Accessing Structure Members](#3-accessing-structure-members)
 4. [Nested Structures](#4-nested-structures)
 5. [Structures and Pointers](#5-structures-and-pointers)
+6. [Structures with Functions](#6-structures-with-functions)
+7. [Conclusion](#7-conclusion)
+8. [References](#8-references)
 
 ## 1. What are Structures?
 
@@ -152,3 +155,61 @@ int main() {
     return 0;
 }
 ```
+
+## 6. Structures with Functions
+
+Structures can be passed to functions either by value or by reference (using pointers). Passing by reference avoids copying large structures and can improve performance.
+
+**Pass by Value:**
+
+```c
+#include <stdio.h>
+
+struct Person {
+    char name[50];
+    int age;
+};
+
+void printPerson(struct Person p) {
+    printf("Name: %s\n", p.name);
+    printf("Age: %d\n", p.age);
+}
+
+int main() {
+    struct Person person1 = {"Alice", 30};
+    printPerson(person1); // Pass by value
+    return 0;
+}
+```
+
+**Pass by Reference:**
+
+```c
+#include <stdio.h>
+
+struct Person {
+    char name[50];
+    int age;
+};
+
+void incrementAge(struct Person *p) {
+    p->age++;
+}
+
+int main() {
+    struct Person person1 = {"Alice", 30};
+    incrementAge(&person1); // Pass by reference (pointer)
+    printf("New Age: %d\n", person1.age);
+    return 0;
+}
+```
+
+## 7. Conclusion
+
+Structures are essential in C programming for organizing data into more meaningful, complex types. By grouping different types under a single name, structures help make programs more readable, modular, and maintainable. Understanding how to define and use structures is crucial for any C programmer.
+
+## 8. References
+
+- The C Programming Language by Brian W. Kernighan and Dennis M. Ritchie (2nd Edition)
+- ISO/IEC 9899:2018 - The C Programming Standard
+- C Programming Tutorials and Examples - [GeeksforGeeks](https://www.geeksforgeeks.org/c-programming-language/)
