@@ -7,6 +7,8 @@ Structures are a powerful feature in C that allow you to define complex data typ
 1. [What are Structures?](#1-what-are-structures)
 2. [Defining a Structure](#2-defining-a-structure)
 3. [Accessing Structure Members](#3-accessing-structure-members)
+4. [Nested Structures](#4-nested-structures)
+5. [Structures and Pointers](#5-structures-and-pointers)
 
 ## 1. What are Structures?
 
@@ -79,4 +81,74 @@ If you are working with pointers to structures, use the arrow operator (`->`) to
 struct Person *ptr = &person1;
 ptr->age = 30;
 printf("Age via pointer: %d\n", ptr->age);
+```
+
+## 4. Nested Structures
+
+Structures in C can also contain other structures as members, which is known as a nested structure.
+
+**Example:**
+
+```c
+#include <stdio.h>
+
+struct Date {
+    int day;
+    int month;
+    int year;
+};
+
+struct Person {
+    char name[50];
+    int age;
+    struct Date birthDate;  // Nested structure
+};
+
+int main() {
+    struct Person person1;
+
+    // Assign values to structure members
+    person1.age = 30;
+    snprintf(person1.name, sizeof(person1.name), "Alice");
+    person1.birthDate.day = 15;
+    person1.birthDate.month = 7;
+    person1.birthDate.year = 1990;
+
+    // Print nested structure members
+    printf("Name: %s\n", person1.name);
+    printf("Age: %d\n", person1.age);
+    printf("Birth Date: %d/%d/%d\n", person1.birthDate.day, person1.birthDate.month, person1.birthDate.year);
+
+    return 0;
+}
+```
+
+## 5. Structures and Pointers
+
+When using pointers to structures, the memory is referenced via the pointer. This allows you to modify structure members dynamically and efficiently.
+
+**Example:**
+
+```c
+#include <stdio.h>
+
+struct Person {
+    char name[50];
+    int age;
+};
+
+int main() {
+    struct Person person1 = {"John", 25};
+    struct Person *ptr = &person1;
+
+    // Access and modify members via pointer
+    ptr->age = 30;
+    snprintf(ptr->name, sizeof(ptr->name), "Jane");
+
+    // Print modified data
+    printf("Name: %s\n", ptr->name);
+    printf("Age: %d\n", ptr->age);
+
+    return 0;
+}
 ```
