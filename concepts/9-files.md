@@ -5,7 +5,7 @@ In C programming, working with files allows programs to store data permanently o
 ## Table of Contents
 
 1. [Opening and Closing Files](#1-opening-and-closing-files)
-
+2. [File Modes](#2-file-modes)
 
 ## 1. Opening and Closing Files
 
@@ -35,4 +35,24 @@ In C, you open a file using the `fopen()` function, which returns a pointer to a
 
   ```c
   fclose(file);
+  ```
+
+## 2. File Modes
+
+  The `fopen()` function allows various modes to control the file access type. Common modes include:
+
+  - `"r"`: Read mode. Opens the file for reading. The file must exist.
+  - `"w"`: Write mode. Opens the file for writing. If the file doesn't exist, it is created; if it exists, its content is truncated.
+  - `"a"`: Append mode. Opens the file for appending. If the file doesn't exist, it is created.
+  - `"r+"`: Read/Write mode. Opens the file for both reading and writing. The file must exist.
+  - `"w+"`: Write/Read mode. Opens the file for reading and writing. If the file exists, it is truncated; if not, it is created.
+  - `"a+"`: Append/Read mode. Opens the file for reading and appending. If the file doesn't exist, it is created.
+
+  **Example:**
+
+  ```c
+  FILE *file = fopen("data.txt", "w");  // Open for writing (create if not exists)
+  if (file == NULL) {
+      printf("Error opening file for writing.\n");
+  }
   ```
