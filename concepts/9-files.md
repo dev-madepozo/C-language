@@ -8,6 +8,7 @@ In C programming, working with files allows programs to store data permanently o
 2. [File Modes](#2-file-modes)
 3. [Reading from Files](#3-reading-from-files)
 4. [Writing to Files](#4-writing-to-files)
+5. [File Positioning](#5-file-positioning)
 7. [Conclusion](#7-conclusion)
 8. [References](#8-references)
 
@@ -136,6 +137,30 @@ In C programming, working with files allows programs to store data permanently o
   }
 
   fputs("Hello, World!\n", file);  // Write a string
+
+  fclose(file);
+  ```
+
+## 5. File Positioning
+
+  File positioning refers to the location of the file pointer inside the file. You can manipulate the position of the pointer using the `fseek()`, `ftell()`, and `rewind()` functions.
+
+  - `fseek(FILE *file, long offset, int whence)`: Moves the file pointer to a specified position.
+  - `ftell(FILE *file)`: Returns the current position of the file pointer.
+  - `rewind(FILE *file)`: Moves the file pointer to the beginning of the file.
+
+  Example (using `fseek()` and `ftell()`):
+
+  ```c
+  FILE *file = fopen("data.txt", "r");
+  if (file == NULL) {
+      printf("Error opening file.\n");
+      return 1;
+  }
+
+  fseek(file, 10, SEEK_SET);  // Move the pointer to the 10th byte
+  long pos = ftell(file);     // Get the current position
+  printf("Current file position: %ld\n", pos);
 
   fclose(file);
   ```
