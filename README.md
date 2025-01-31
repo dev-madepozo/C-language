@@ -89,7 +89,7 @@ This repository covers a range of fundamental and advanced concepts in C program
 - [Arrays](/concepts/6-arrays.md)
 - [Pointers](/concepts/7-pointers.md)
 - [Structures](/concepts/8-structures.md)
-- [Files](/concepts/9-files.md) `⏳ soon`
+- [Files](/concepts/9-files.md)
 - [Sqlite3](/concepts/10-sqlite3.md) `⏳ soon`
 
 ## Books
