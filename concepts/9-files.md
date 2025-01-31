@@ -9,6 +9,7 @@ In C programming, working with files allows programs to store data permanently o
 3. [Reading from Files](#3-reading-from-files)
 4. [Writing to Files](#4-writing-to-files)
 5. [File Positioning](#5-file-positioning)
+6. [Error Handling in File Operations](#6-error-handling-in-file-operations)
 7. [Conclusion](#7-conclusion)
 8. [References](#8-references)
 
@@ -149,7 +150,7 @@ In C programming, working with files allows programs to store data permanently o
   - `ftell(FILE *file)`: Returns the current position of the file pointer.
   - `rewind(FILE *file)`: Moves the file pointer to the beginning of the file.
 
-  Example (using `fseek()` and `ftell()`):
+  **Example** (using `fseek()` and `ftell()`):
 
   ```c
   FILE *file = fopen("data.txt", "r");
@@ -161,6 +162,34 @@ In C programming, working with files allows programs to store data permanently o
   fseek(file, 10, SEEK_SET);  // Move the pointer to the 10th byte
   long pos = ftell(file);     // Get the current position
   printf("Current file position: %ld\n", pos);
+
+  fclose(file);
+  ```
+
+## 6. Error Handling in File Operations
+
+  Proper error handling is crucial for reliable file operations. You can use `ferror()` to check for errors in file operations, and `feof()` to check for the end of the file.
+
+  - `ferror(FILE *file)`: Returns a non-zero value if an error has occurred while performing file operations.
+  - `feof(FILE *file)`: Returns a non-zero value if the end of the file has been reached.
+
+  **Example** (using `ferror()`):
+
+  ```c
+  FILE *file = fopen("data.txt", "r");
+  if (file == NULL) {
+      printf("Error opening file.\n");
+      return 1;
+  }
+
+  char ch;
+  while ((ch = fgetc(file)) != EOF) {
+      if (ferror(file)) {
+          printf("Error reading file.\n");
+          break;
+      }
+      printf("%c", ch);  // Print each character
+  }
 
   fclose(file);
   ```
