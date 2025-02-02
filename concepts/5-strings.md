@@ -6,6 +6,8 @@ Strings are sequences of characters, usually terminated by a null character `(\0
 
 1. [String Basics](#1-string-basics)
 2. [String Declaration and Initialization](#2-string-declaration-and-initialization)
+3. [String Access](#3-string-access)
+4. [Common String Functions](#4-common-string-functions)
 
 ## 1. String Basics
 
@@ -51,3 +53,69 @@ Strings are sequences of characters, usually terminated by a null character `(\0
   ```c
   char str[] = "World";  // The size of str is automatically set to 6
   ```
+
+## 3. String Access
+
+  Strings are arrays of characters, so individual characters can be accessed using array indexing or pointers.
+
+  - **Access via Indexing**: You can access individual characters of a string using array indexing. The first character is accessed at index `0`.
+
+  **Example:**
+
+  ```c
+  char str[] = "Hello";
+  printf("%c\n", str[0]);  // Outputs: H
+  printf("%c\n", str[1]);  // Outputs: e
+  ```
+
+  - **Access via Pointers**: Strings are often manipulated using pointers. The string name itself is a pointer to the first character.
+
+  **Example:**
+
+  ```c
+  char *str = "Hello";
+  printf("%c\n", *(str + 1));  // Outputs: e
+  ```
+
+## 4. Common String Functions
+
+  The C standard library provides several useful functions for string manipulation, which are defined in `<string.h>`.
+
+  - **strlen()**: Returns the length of the string (not including the null terminator).
+
+    ```c
+    size_t len = strlen("Hello, World!");  // len = 13
+    ```
+
+  - **strcpy()**: Copies one string into another. The destination array must be large enough to hold the source string and the null terminator.
+
+    ```c
+    char dest[20];
+    strcpy(dest, "Hello, World!");
+    ```
+
+  - **strcat()**: Appends one string to another. Ensure the destination array is large enough.
+
+    ```c
+    char str1[50] = "Hello, ";
+    char str2[] = "World!";
+    strcat(str1, str2);  // str1 now contains "Hello, World!"
+    ```
+
+  - **strcmp()**: Compares two strings lexicographically.
+
+    ```c
+    int result = strcmp("apple", "banana");  // result < 0 because "apple" is lexicographically smaller
+    ```
+  
+  - **strchr()**: Finds the first occurrence of a character in a string.
+
+    ```c
+    char *ptr = strchr("Hello, World!", 'o');  // ptr points to the first 'o'
+    ```
+
+  - **strstr()**: Finds the first occurrence of a substring in a string.
+
+    ```c
+    char *ptr = strstr("Hello, World!", "World");  // ptr points to "World!"
+    ```
