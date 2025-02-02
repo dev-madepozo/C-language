@@ -311,8 +311,9 @@ In C, the exact size of a data type can vary depending on the platform (architec
 
 ## 6. Conclusion
 
-C provides a rich set of data types that allow for efficient and flexible memory usage. By choosing the right data type for the job, you can optimize your program's performance and ensure its correctness. Understanding pointers, arrays, structures, and the various modifiers is essential to mastering C programming.
+  C provides a rich set of data types that allow for efficient and flexible memory usage. By choosing the right data type for the job, you can optimize your program's performance and ensure its correctness. Understanding pointers, arrays, structures, and the various modifiers is essential to mastering C programming.
 
 ## 7. References:
-- C Programming Language by Brian W. Kernighan and Dennis M. Ritchie (2nd Edition)
-- ISO/IEC 9899:2018 - The C Programming Standard
+
+  - C Programming Language by Brian W. Kernighan and Dennis M. Ritchie (2nd Edition)
+  - ISO/IEC 9899:2018 - The C Programming Standard
