@@ -85,7 +85,7 @@ This repository covers a range of fundamental and advanced concepts in C program
 - [Operators](/concepts/2-operators.md)
 - [Control Flow](/concepts/3-control-flow.md)
 - [Functions](/concepts/4-functions.md)
-- [Strings](/concepts/5-strings.md) `⏳ soon`
+- [Strings](/concepts/5-strings.md)
 - [Arrays](/concepts/6-arrays.md)
 - [Pointers](/concepts/7-pointers.md)
 - [Structures](/concepts/8-structures.md)
