@@ -7,6 +7,8 @@ SQLite3 is a C-language library that implements a small, fast, self-contained, h
 1. [Introduction to SQLite3](#1-introduction-to-sqlite3)
 2. [SQLite3 Data Types](#2-sqlite3-data-types)
 3. [SQLite3 Functions](#3-sqlite3-functions)
+4. [Working with SQLite3 Databases](#4-working-with-sqlite3-databases)
+5. [Prepared Statements](#5-prepared-statements)
 
 ## 1. Introduction to SQLite3
 
@@ -100,4 +102,54 @@ SQLite3 is a C-language library that implements a small, fast, self-contained, h
   }
 
   sqlite3_close(db);
+  ```
+
+## 4. Working with SQLite3 Databases
+
+  To work with SQLite3 databases, you'll need to open the database, run SQL queries (using either direct SQL or prepared statements), and close the database after you're done.
+
+  **Opening a Database**
+  
+  You can open a SQLite3 database using `sqlite3_open()`. If the database does not exist, it will be created.
+
+  ```c
+  sqlite3 *db;
+  int rc = sqlite3_open("example.db", &db);
+  if (rc) {
+      printf("Can't open database: %s\n", sqlite3_errmsg(db));
+  } else {
+      printf("Opened database successfully\n");
+  }
+  ```
+
+  **Closing a Database**
+  
+  After you're done, you should close the database connection to free up resources.
+
+  ```c
+  sqlite3_close(db);
+  ```
+
+## 5. Prepared Statements
+
+  Prepared statements are used to execute SQL queries in a more efficient and secure manner. They help avoid SQL injection and improve performance by reusing the query plan.
+
+  **Example:**
+
+  ```c
+  sqlite3_stmt *stmt;
+  const char *sql = "SELECT name, age FROM users WHERE id = ?";
+  sqlite3_prepare_v2(db, sql, -1, &stmt, 0);
+
+  // Bind an integer to the prepared statement
+  sqlite3_bind_int(stmt, 1, 1); // Bind id = 1
+
+  // Execute the statement
+  int rc = sqlite3_step(stmt);
+  if (rc == SQLITE_ROW) {
+      printf("Name: %s, Age: %d\n", sqlite3_column_text(stmt, 0), sqlite3_column_int(stmt, 1));
+  }
+
+  // Finalize the statement
+  sqlite3_finalize(stmt);
   ```
