@@ -4,6 +4,10 @@ SQLite3 is a C-language library that implements a small, fast, self-contained, h
 
 ## Table of Contents
 
+1. [Introduction to SQLite3](#1-introduction-to-sqlite3)
+2. [SQLite3 Data Types](#2-sqlite3-data-types)
+3. [SQLite3 Functions](#3-sqlite3-functions)
+
 ## 1. Introduction to SQLite3
 
   SQLite3 is an embedded SQL database engine. Unlike many other SQL database management systems, SQLite is not a client-server database engine but rather an embedded, self-contained, file-based database that integrates into your application. This makes it ideal for local storage, mobile apps, and small applications.
@@ -56,4 +60,44 @@ SQLite3 is a C-language library that implements a small, fast, self-contained, h
 
   // Finalize the statement
   sqlite3_finalize(stmt);
+  ```
+
+## 3. SQLite3 Functions
+
+  SQLite3 provides several functions to interact with the database. These functions include opening and closing databases, preparing SQL statements, executing queries, and handling errors.
+
+  Key Functions:
+  
+  - `sqlite3_open()`: Opens a database file.
+  - `sqlite3_close()`: Closes a database connection.
+  - `sqlite3_exec()`: Executes an SQL statement that does not return data (e.g., INSERT, UPDATE).
+  - `sqlite3_prepare_v2()`: Prepares a statement for execution.
+  - `sqlite3_step()`: Executes a prepared statement.
+  - `sqlite3_errmsg()`: Retrieves the last error message.
+
+  **Example:**
+
+  ```c
+  sqlite3 *db;
+  char *errMsg = 0;
+  int rc = sqlite3_open("test.db", &db);
+  if (rc) {
+      fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+      return(0);
+  } else {
+      fprintf(stderr, "Opened database successfully\n");
+  }
+
+  // Example SQL query
+  const char *sql = "SELECT * FROM users";
+  rc = sqlite3_exec(db, sql, callback, 0, &errMsg);
+
+  if (rc != SQLITE_OK) {
+      fprintf(stderr, "SQL error: %s\n", errMsg);
+      sqlite3_free(errMsg);
+  } else {
+      fprintf(stdout, "Operation completed successfully\n");
+  }
+
+  sqlite3_close(db);
   ```
