@@ -9,6 +9,10 @@ SQLite3 is a C-language library that implements a small, fast, self-contained, h
 3. [SQLite3 Functions](#3-sqlite3-functions)
 4. [Working with SQLite3 Databases](#4-working-with-sqlite3-databases)
 5. [Prepared Statements](#5-prepared-statements)
+6. [Transactions](#6-transactions)
+7. [Error Handling](#7-error-handling)
+8. [Conclusion](#8-conclusion)
+9. [References](#9-references)
 
 ## 1. Introduction to SQLite3
 
@@ -153,3 +157,47 @@ SQLite3 is a C-language library that implements a small, fast, self-contained, h
   // Finalize the statement
   sqlite3_finalize(stmt);
   ```
+
+## 6. Transactions
+
+  SQLite3 supports transactions, which allow you to execute multiple queries in an atomic operation. Transactions help ensure that either all changes are applied, or none are applied (in case of failure).
+
+  **Example:**
+
+  ```c
+  sqlite3_exec(db, "BEGIN TRANSACTION;", 0, 0, &errMsg);
+  sqlite3_exec(db, "UPDATE users SET age = 31 WHERE id = 1;", 0, 0, &errMsg);
+  sqlite3_exec(db, "COMMIT;", 0, 0, &errMsg);
+  ```
+
+  If you encounter an error during the transaction, you can use `ROLLBACK` to undo the changes.
+
+  ```c
+  sqlite3_exec(db, "ROLLBACK;", 0, 0, &errMsg);
+  ```
+
+## 7. Error Handling
+
+  SQLite3 functions generally return an integer to indicate the status of the operation. You can use `sqlite3_errmsg()` to retrieve the error message if an error occurs.
+
+  **Example:**
+
+  ```c
+  int rc = sqlite3_exec(db, sql, callback, 0, &errMsg);
+  if (rc != SQLITE_OK) {
+    fprintf(stderr, "SQL error: %s\n", errMsg);
+    sqlite3_free(errMsg);
+  } else {
+    printf("Operation completed successfully\n");
+  }
+  ```
+
+## 8. Conclusion
+  
+  SQLite3 is a powerful and lightweight database engine that is easy to integrate into C applications. With its support for dynamic typing, prepared statements, and transactions, it provides a solid foundation for managing data locally within your C programs.
+
+## 9. References
+
+  - [SQLite3 Official Documentation](https://www.sqlite.org/docs.html)
+  - [SQLite3 C API](https://www.sqlite.org/c3ref/intro.html)
+  - [The Definitive Guide to SQLite by Grant Allen](https://www.oreilly.com/library/view/the-definitive-guide/9781449374648/)
